@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Multiplication Table</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h2>Multiplication Table</h2>
+
+	<label for="number">Enter a number:</label>
+	<i class="fa fa-user icon"></i>
+	<input type="number" id="number" min="1" max="20">
+	<button onclick="generateTable()">Generate Table</button>
+
+	<table id="multiplication-table">
+		<!-- Table content will be generated dynamically using JavaScript -->
+	</table>
+
+	<script>
+		function generateTable() {
+			var num = parseInt(document.getElementById("number").value);
+			var table = document.getElementById("multiplication-table");
+			if(num.length < 0){
+				table.innerHTML= "";
+			}
+			table.innerHTML = ""; // Clear existing table content
+			for (var i = 1; i <= 10; i++) {
+				var row = table.insertRow();
+				var cell1 = row.insertCell(0);
+				var cell3 = row.insertCell(1);
+				var cell4 = row.insertCell(0);
+				var cell5 = row.insertCell(0);
+				
+				cell2 = row.insertCell(1);
+				row.style.textDecoration = "Underline"
+				//cell1.textContent = `${num} x ${i} = `;
+				cell1.innerHTML = num + "X" + i + "=";
+				cell2.innerHTML = num * i;
+			}
+		}
+	</script>
+
+</body>
+
+</html>
